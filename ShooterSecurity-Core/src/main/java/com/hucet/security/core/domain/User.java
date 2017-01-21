@@ -25,7 +25,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Profile("test")
 @Getter
 @Setter
 public class User {

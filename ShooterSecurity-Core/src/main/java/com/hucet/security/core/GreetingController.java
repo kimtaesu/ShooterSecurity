@@ -17,8 +17,8 @@
 package com.hucet.security.core;
 
 import com.hucet.security.core.domain.User;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.concurrent.atomic.AtomicLong;
@@ -30,10 +30,9 @@ public class GreetingController {
 
     private final AtomicLong counter = new AtomicLong();
 
-    @RequestMapping("/greeting")
-    public Greeting greeting(@AuthenticationPrincipal User user) {
+    @RequestMapping(value = "/greeting", method = RequestMethod.GET)
+    public Greeting greeting(User user) {
         return new Greeting(counter.incrementAndGet(),
                 String.format(template, user.getName()));
     }
-
 }

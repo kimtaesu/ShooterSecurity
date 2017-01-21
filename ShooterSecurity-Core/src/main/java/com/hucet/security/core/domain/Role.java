@@ -18,7 +18,6 @@ package com.hucet.security.core.domain;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.context.annotation.Profile;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
@@ -26,7 +25,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Profile("test")
 @Getter
 @Setter
 public class Role implements GrantedAuthority {

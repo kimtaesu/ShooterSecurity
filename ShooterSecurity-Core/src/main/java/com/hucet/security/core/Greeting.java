@@ -16,19 +16,16 @@
 
 package com.hucet.security.core;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Greeting {
 
     private final long id;
 
     private final String content;
-
-    public long getId() {
-        return id;
-    }
-
-    public String getContent() {
-        return content;
-    }
 
     public Greeting(long id, String content) {
         this.id = id;
