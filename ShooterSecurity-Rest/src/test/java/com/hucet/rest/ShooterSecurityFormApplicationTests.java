@@ -1,4 +1,4 @@
-package com.hucet.rest.form;
+package com.hucet.rest;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
