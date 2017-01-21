@@ -1,3 +1,5 @@
 rootProject.name = 'ShooterSecurity'
 include 'ShooterSecurity-Core'
 include 'ShooterSecurity-Form'
+include 'ShooterSecurity-Domain'
+include 'ShooterSecurity-Dto'

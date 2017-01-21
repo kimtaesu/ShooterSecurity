@@ -1,0 +1,27 @@
+buildscript {
+	ext {
+		springBootVersion = '1.4.3.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'org.springframework.boot'
+
+jar {
+	baseName = 'shootersecurity-dto'
+	version = '0.0.1-SNAPSHOT'
+}
+
+
+dependencies {
+	compile('com.fasterxml.jackson.core:jackson-core:2.6.5')
+	compile('com.fasterxml.jackson.core:jackson-databind:2.6.5')
+	compile('com.fasterxml.jackson.core:jackson-annotations:2.6.5')
+	compile('org.hibernate:hibernate-validator:5.2.4.Final')
+	compile('javax.el:javax.el-api:2.2.5')
+}
