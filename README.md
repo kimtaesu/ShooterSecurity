@@ -1,6 +1,4 @@
-# ShooterSecurity
-
-### Grant Type
+# OAuth2.0   Grant Type
 
 ## 1. authorization_code
  - 장기 접근이 요구될 때
@@ -22,5 +20,5 @@
  - 자원 소유자가 OAuth 플로우를 사용하지 않고 외부에서 자원을 접근할 수 있도록 허용하는 할 때
 
 
-### JPA Reference
+# JPA Reference
 https://backend.gitbooks.io/jpa/content/chapter6.html
