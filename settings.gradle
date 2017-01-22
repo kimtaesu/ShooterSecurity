@@ -1,5 +1,5 @@
 rootProject.name = 'ShooterSecurity'
-include 'ShooterSecurity-Core'
+include 'ShooterSecurity-OAuth2'
 include 'ShooterSecurity-Rest'
 include 'ShooterSecurity-Domain'
 include 'ShooterSecurity-Dto'

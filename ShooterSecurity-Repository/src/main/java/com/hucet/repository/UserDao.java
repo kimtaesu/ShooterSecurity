@@ -12,5 +12,5 @@ import java.util.Optional;
 public interface UserDao extends Repository<User, Long> {
     User save(User newUser);
 
-    Optional<User> findByUserEmail(String userEmail);
+    Optional<User> findByUserName(String userName);
 }
