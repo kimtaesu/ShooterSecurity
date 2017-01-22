@@ -24,4 +24,6 @@ dependencies {
 
 	compile project(':ShooterSecurity-Dto')
 	compile project(':ShooterSecurity-Repository')
+
+	compile('org.modelmapper:modelmapper:0.7.7')
 }
