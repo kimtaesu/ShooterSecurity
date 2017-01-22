@@ -28,7 +28,7 @@ public interface UserService {
 
         @Override
         public User newUser(UserDto.ApplicationRequest applicationRequest) {
-            boolean exist = userDao.findByUserEmail(applicationRequest.getUserEmail())
+            boolean exist = userDao.findByUserName(applicationRequest.getUserEmail())
                     .isPresent();
             if (exist) {
                 // TODO EXCEPTION
