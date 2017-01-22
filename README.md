@@ -20,3 +20,7 @@
 ## 4. client_credentials
  - Google Storage나 Amazon S3 같은 저장 API 중 하나를 사용하여 데이터 파일이나 이미지 등의 외부 자원을 저장하는 어플리케이션을 만들 때
  - 자원 소유자가 OAuth 플로우를 사용하지 않고 외부에서 자원을 접근할 수 있도록 허용하는 할 때
+
+
+### JPA Reference
+https://backend.gitbooks.io/jpa/content/chapter6.html
