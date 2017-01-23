@@ -22,13 +22,12 @@ public class Role implements GrantedAuthority {
     @Column(name = "ROLE_ID")
     private Long id;
 
-    @Enumerated(EnumType.STRING)
     @Column(length = 15, nullable = false)
-    private RoleType roleType;
+    private String roleType;
 
 
     @Override
     public String getAuthority() {
-        return roleType.name();
+        return roleType;
     }
 }

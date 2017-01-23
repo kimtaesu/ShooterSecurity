@@ -29,12 +29,12 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 @EnableWebSecurity
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-//    @Autowired
-//    private UserDetailsService userDetailsService;
+    @Autowired
+    private UserDetailsService userDetailsService;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.userDetailsService(userDetailsService);
+        auth.userDetailsService(userDetailsService);
     }
 
     @Override
