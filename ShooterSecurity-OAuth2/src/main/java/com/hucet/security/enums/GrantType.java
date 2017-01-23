@@ -1,4 +1,4 @@
-package com.hucet.security.config;
+package com.hucet.security.enums;
 
 import lombok.Getter;
 

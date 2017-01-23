@@ -11,12 +11,6 @@ import javax.persistence.*;
 @Setter
 @Table(name = "ROLE")
 public class Role implements GrantedAuthority {
-
-
-    public enum RoleType {
-        ADMIN, USER
-    }
-
     @Id
     @GeneratedValue
     @Column(name = "ROLE_ID")

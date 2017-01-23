@@ -1,6 +1,8 @@
 package com.hucet.security.config;
 
-import com.hucet.security.domain.Role;
+import com.hucet.security.enums.GrantType;
+import com.hucet.security.enums.RoleType;
+import com.hucet.security.enums.ScopeType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -34,12 +36,10 @@ class AuthorizationConfig extends AuthorizationServerConfigurerAdapter {
         clients
                 .inMemory()
                 .withClient(client_id)
-                .authorizedGrantTypes(GrantType.PASSWORD.getGrantType(),
-                        GrantType.REFRESH_TOKEN.getGrantType())
-                .authorities(Role.RoleType.USER.name())
-                .scopes(ScopeEnum.TEST.getScope())
-                .resourceIds(client_secret)
-                .secret("aaa");
+                .authorizedGrantTypes(GrantType.PASSWORD.getGrantType())
+                .authorities(RoleType.ROLE_USER.name())
+                .scopes(ScopeType.TEST.name())
+                .secret(client_secret);
         // @formatter:on
     }
 

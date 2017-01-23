@@ -1,4 +1,4 @@
 oauth2:
   config:
-    client_id: test
-    client_secret : test
+    client_id: aaa
+    client_secret : aaa
