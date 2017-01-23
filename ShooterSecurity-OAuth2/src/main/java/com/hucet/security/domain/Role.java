@@ -23,7 +23,7 @@ public class Role implements GrantedAuthority {
     private Long id;
 
     @Enumerated(EnumType.STRING)
-    @Column(length = 10, nullable = false)
+    @Column(length = 15, nullable = false)
     private RoleType roleType;
 
 

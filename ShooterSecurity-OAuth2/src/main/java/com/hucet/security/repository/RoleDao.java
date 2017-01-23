@@ -8,7 +8,7 @@ import org.springframework.data.repository.Repository;
 import java.util.Optional;
 
 public interface RoleDao extends Repository<Role, Long> {
-	Optional<Role> findByRoleName(String roleName);
+	Optional<Role> findByRoleType(String roleType);
 
 	Role save(Role role);
 }

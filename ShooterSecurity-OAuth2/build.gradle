@@ -32,7 +32,4 @@ dependencies {
     compile('mysql:mysql-connector-java')
 
     compile('org.flywaydb:flyway-core')
-
-    compile project(':ShooterSecurity-Domain')
-    compile project(':ShooterSecurity-Repository')
 }

@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface OAuthAccountDao extends Repository<OAuthAccount, Long> {
 
-    Optional<OAuthAccount> findByUsername(String username);
+    Optional<OAuthAccount> findByUserName(String userName);
 
     OAuthAccount save(OAuthAccount oauthAccount);
 }
