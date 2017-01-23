@@ -11,12 +11,13 @@ import javax.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"userEmail", "userName"}))
+@Table(name = "ACCOUNT", uniqueConstraints = @UniqueConstraint(columnNames = {"userEmail", "userName"}))
 public class Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    @Column(name = "ACCOUNT_ID")
+    private Long id;
 
     private String userEmail;
 

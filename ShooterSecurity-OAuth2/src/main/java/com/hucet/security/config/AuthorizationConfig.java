@@ -46,8 +46,8 @@ class AuthorizationConfig extends OAuth2AuthorizationServerConfiguration {
     @Qualifier("authenticationManagerBean")
     private AuthenticationManager authenticationManager;
 
-    @Autowired
-    private UserDetailsService userDetailsService;
+//    @Autowired
+//    private UserDetailsService userDetailsService;
 
     private TokenStore tokenStore = new InMemoryTokenStore();
 
@@ -56,8 +56,8 @@ class AuthorizationConfig extends OAuth2AuthorizationServerConfiguration {
         // @formatter:off
         endpoints
                 .tokenStore(this.tokenStore)
-                .authenticationManager(this.authenticationManager)
-                .userDetailsService(userDetailsService);
+                .authenticationManager(this.authenticationManager);
+//                .userDetailsService(userDetailsService);
         // @formatter:on
     }
 

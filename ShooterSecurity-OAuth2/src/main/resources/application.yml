@@ -1,21 +1,46 @@
 server.port: 8180
 
+
 logging.level:
-  org.springframework.boot: debug
+  org.springframework.*: debug
 
-
+spring.profiles.active: mysql
+---
 spring:
+  profiles: h2
   h2:
     console:
       enabled: true
   datasource:
-    url: jdbc:h2:~/shooter1;Mode=MySQL;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;INIT=CREATE SCHEMA IF NOT EXISTS \"public\";
+    url: jdbc:h2:~/shooter11;Mode=MySQL;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;INIT=CREATE SCHEMA IF NOT EXISTS \"public\";
     username: sa
     password:
     driver-class-name: org.h2.Driver
+
   jpa:
-    hibernate.ddl-auto: create
+    hibernate.ddl-auto: create-drop
     show-sql: true
     properties:
       hibernate:
         dialect: org.hibernate.dialect.H2Dialect
+---
+spring:
+  profiles: mysql
+  datasource:
+      url: jdbc:mysql://localhost:3306/shooter?useUnicode=true&characterEncoding=utf-8&useSSL=false
+      username: test
+      password: test
+      driver-class-name: com.mysql.jdbc.Driver
+      test-on-borrow: true
+      test-while-idle: true
+      validation-query: select 1
+      max-active: 10
+      max-idle: 5
+      min-idle: 1
+      initial-size: 5
+      time-between-eviction-runs-millis: 5000
+      min-evictable-idle-time-millis: 60000
+  jpa:
+      database: mysql
+      show-sql: true
+      hibernate.ddl-auto: validate
