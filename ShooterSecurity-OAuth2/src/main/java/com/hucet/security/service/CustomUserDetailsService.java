@@ -1,9 +1,10 @@
 package com.hucet.security.service;
 
-import com.hucet.domain.User;
-import com.hucet.repository.UserDao;
+import com.hucet.domain.Account;
+import com.hucet.repository.AccountDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -15,59 +16,29 @@ import java.util.Optional;
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
-    private final UserDao userRepository;
+    private final AccountDao userRepository;
 
     @Autowired
-    public CustomUserDetailsService(UserDao userRepository) {
+    public CustomUserDetailsService(AccountDao userRepository) {
         this.userRepository = userRepository;
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<User> user = userRepository.findByUserName(username);
+        Optional<Account> account = userRepository.findByUserName(username);
 
-        if (!user.isPresent()) {
-            throw new UsernameNotFoundException(String.format("User %s does not exist!", username));
+        if (!account.isPresent()) {
+            throw new UsernameNotFoundException(String.format("Account %s does not exist!", username));
         }
-        return new UserRepositoryUserDetails(user);
+        return new User(account.get);
     }
 
     private final static class UserRepositoryUserDetails extends User implements UserDetails {
 
         private static final long serialVersionUID = 1L;
 
-        private UserRepositoryUserDetails(User user) {
-            super(user);
-        }
-
-        @Override
-        public Collection<? extends GrantedAuthority> getAuthorities() {
-            return getRoles();
-        }
-
-        @Override
-        public String getUsername() {
-            return getLogin();
-        }
-
-        @Override
-        public boolean isAccountNonExpired() {
-            return true;
-        }
-
-        @Override
-        public boolean isAccountNonLocked() {
-            return true;
-        }
-
-        @Override
-        public boolean isCredentialsNonExpired() {
-            return true;
-        }
-
-        @Override
-        public boolean isEnabled() {
-            return true;
+        public UserRepositoryUserDetails(String username, String password, Collection<? extends GrantedAuthority> authorities) {
+            super(username, password, authorities);
         }
 
     }

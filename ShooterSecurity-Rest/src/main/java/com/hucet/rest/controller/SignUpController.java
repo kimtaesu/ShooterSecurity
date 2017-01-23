@@ -1,8 +1,8 @@
 package com.hucet.rest.controller;
 
-import com.hucet.domain.User;
-import com.hucet.dto.UserDto;
-import com.hucet.service.user.UserService;
+import com.hucet.domain.Account;
+import com.hucet.dto.AccountDto;
+import com.hucet.service.account.AccountService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,17 +19,17 @@ import javax.validation.ValidationException;
 public class SignUpController {
 
     @Autowired
-    UserService userService;
+    AccountService userService;
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseStatus(code = HttpStatus.CREATED)
-    public Integer signup(@RequestBody @Valid UserDto.ApplicationRequest user, BindingResult result) {
+    public Integer signup(@RequestBody @Valid AccountDto.ApplicationRequest user, BindingResult result) {
         if (result.hasErrors()) {
             // TODO Exception
             throw new ValidationException(result.toString());
         }
-        User savedUser = userService.newUser(user);
-        return savedUser.getId();
+        Account savedAccount = userService.newUser(user);
+        return savedAccount.getId();
     }
 }

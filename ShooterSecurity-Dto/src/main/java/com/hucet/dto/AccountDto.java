@@ -1,5 +1,6 @@
 package com.hucet.dto;
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,9 +10,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 /**
  * Created by taesu on 2017-01-21.
  */
-public class UserDto {
+public class AccountDto {
 
-    //사용자 가입 요청
     @Getter
     @Setter
     @NoArgsConstructor
