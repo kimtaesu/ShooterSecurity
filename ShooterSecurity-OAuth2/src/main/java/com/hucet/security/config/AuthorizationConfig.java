@@ -25,7 +25,7 @@ class AuthorizationConfig extends AuthorizationServerConfigurerAdapter {
     @Value(value = "${oauth2.config.client_id}")
     private String client_id;
 
-    @Value(value = "${oauth2.config.client_id}")
+    @Value(value = "${oauth2.config.client_secret}")
     private String client_secret;
 
     @Override
