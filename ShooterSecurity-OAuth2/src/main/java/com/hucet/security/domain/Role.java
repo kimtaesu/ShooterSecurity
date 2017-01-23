@@ -2,6 +2,7 @@ package com.hucet.security.domain;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 
@@ -9,7 +10,8 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Table(name = "ROLE")
-public class Role {
+public class Role implements GrantedAuthority {
+
 
     public enum RoleType {
         ADMIN, USER
@@ -23,4 +25,10 @@ public class Role {
     @Enumerated(EnumType.STRING)
     @Column(length = 10, nullable = false)
     private RoleType roleType;
+
+
+    @Override
+    public String getAuthority() {
+        return roleType.name();
+    }
 }

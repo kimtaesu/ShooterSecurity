@@ -52,6 +52,5 @@ public class OAuthAccount {
 
     @ManyToMany
     @JoinTable(name = "USER_ROLE", joinColumns = @JoinColumn(name = "USER_ID"), inverseJoinColumns = @JoinColumn(name = "ROLE_ID"))
-    @Setter(AccessLevel.NONE)
     private Set<Role> roles = new HashSet<>();
 }
