@@ -1,0 +1,11 @@
+mail:
+  host: smtp.gmail.com
+  port: 587
+  protocol: smtp
+  default-encoding: UTF-8
+  username: your-email@domain
+  password: password
+  debug: true
+  smtp:
+    start-tls-enable: true
+    auth: true
