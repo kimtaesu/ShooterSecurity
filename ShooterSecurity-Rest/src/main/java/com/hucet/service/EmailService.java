@@ -37,7 +37,7 @@ public interface EmailService {
             rabbitTemplate.setMessageConverter(jsonMessageConverter());
             rabbitTemplate.convertAndSend(mailBindingProperties.getExchange(),
                     mailBindingProperties.getRountingKey(),
-                    dto);
+                    mailUserInfoDto);
         }
 
         @Bean

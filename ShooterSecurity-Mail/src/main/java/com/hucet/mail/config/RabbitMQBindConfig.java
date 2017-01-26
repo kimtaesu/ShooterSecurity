@@ -47,8 +47,10 @@ public class RabbitMQBindConfig {
     }
 
     @Bean
-    MessageListenerAdapter mailSenderListener() {
-        MessageListenerAdapter adapter = new MessageListenerAdapter(new MQListener.MQListenerImpl(), "onReceiveredMailForCert");
+    @Autowired
+    MessageListenerAdapter mailSenderListener(MQListener.MQListenerImpl Listener) {
+        MessageListenerAdapter adapter = new MessageListenerAdapter(Listener,
+                "onReceiveredMailForCert");
         adapter.setMessageConverter(jsonMessageConverter());
         return adapter;
     }

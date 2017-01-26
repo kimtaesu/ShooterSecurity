@@ -9,7 +9,6 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.thymeleaf.TemplateEngine;
 
 import javax.mail.MessagingException;
 import javax.validation.Valid;
@@ -31,9 +30,6 @@ public interface MailSendService {
 
         @Autowired
         MailContentConstructor mailContentConstructor;
-
-        @Autowired
-        private TemplateEngine templateEngine;
 
         @Override
         public void mailSend(EmailType type, @Valid MailUserInfoDto dto) {
