@@ -23,8 +23,9 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     compile('org.springframework.boot:spring-boot-configuration-processor')
     testCompile('org.springframework.boot:spring-boot-starter-test')
-
+    compile('org.springframework.boot:spring-boot-starter-amqp')
     compile('org.projectlombok:lombok:1.16.6')
-
+    compile project(':ShooterSecurity-Dto')
+    compile project(':ShooterSecurity-Properties')
     compile "com.google.guava:guava:16+"
 }

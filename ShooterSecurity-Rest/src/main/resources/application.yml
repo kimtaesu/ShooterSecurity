@@ -5,6 +5,20 @@ server:
 logging.level:
   org.springframework.*: debug
 
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: test
+    password: test
+    virtual-host: /mail
+
+    binding:
+      mail:
+        queue: mail.queue
+        exchange: mail.direct
+        rountingKey: mail.queue
+
 spring.profiles.active: mysql
 ---
 spring:
@@ -45,3 +59,4 @@ spring:
       database: mysql
       show-sql: true
       hibernate.ddl-auto: create-drop
+

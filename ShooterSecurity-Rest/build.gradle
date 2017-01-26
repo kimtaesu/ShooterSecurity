@@ -1,34 +1,35 @@
 buildscript {
-	ext {
-		springBootVersion = '1.4.3.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-	}
+    ext {
+        springBootVersion = '1.4.3.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
 }
 
 apply plugin: 'org.springframework.boot'
 
 jar {
-	baseName = 'shootersecurity-rest'
-	version = '0.0.1-SNAPSHOT'
+    baseName = 'shootersecurity-rest'
+    version = '0.0.1-SNAPSHOT'
 }
 
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-data-jpa')
-	compile('org.springframework.boot:spring-boot-starter')
-	compile('org.springframework.boot:spring-boot-starter-web')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('org.springframework.boot:spring-boot-starter')
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-amqp')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
 
-
-	compile project(':ShooterSecurity-Domain')
-	compile project(':ShooterSecurity-Dto')
-	compile project(':ShooterSecurity-Service')
-
-	compile('com.h2database:h2')
-	compile('mysql:mysql-connector-java')
+    compile('org.springframework.boot:spring-boot-configuration-processor')
+    compile project(':ShooterSecurity-Domain')
+    compile project(':ShooterSecurity-Dto')
+    compile project(':ShooterSecurity-Service')
+    compile project(':ShooterSecurity-Properties')
+    compile('com.h2database:h2')
+    compile('mysql:mysql-connector-java')
 }
