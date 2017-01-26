@@ -9,22 +9,14 @@ buildscript {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 	}
 }
-
 apply plugin: 'org.springframework.boot'
 
 jar {
-	baseName = 'shootersecurity-dto'
+	baseName = 'shootersecurity-domain'
 	version = '0.0.1-SNAPSHOT'
 }
 
-
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
-
-	compile project(':ShooterSecurity-Common')
-	compile project(':ShooterSecurity-Dto')
-	compile project(':ShooterSecurity-Repository')
-
-
+	compile('org.modelmapper:modelmapper:0.7.7')
 }

@@ -1,17 +1,16 @@
-package com.hucet.service.mapper;
+package com.hucet.common.mapper;
 
 import org.modelmapper.Condition;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
 /**
- * Created by taesu on 2017-01-22.
+ * Created by taesu on 2017-01-26.
  */
-@Configuration
-public class CustomMapper {
-
+@Component
+public class CommonMapper {
     @Bean
     public ModelMapper modelMapperBean() {
         Condition<?, ?> skipId = (context) ->

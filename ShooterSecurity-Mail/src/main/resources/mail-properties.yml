@@ -3,8 +3,8 @@ mail:
   port: 587
   protocol: smtp
   default-encoding: UTF-8
-  username: your-email@domain
-  password: password
+  email: sendermail888@gmail.com
+  password: mailsender!@#
   debug: true
   smtp:
     start-tls-enable: true

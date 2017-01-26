@@ -2,7 +2,7 @@ package com.hucet.mail.config;
 
 
 import com.hucet.mail.listener.MQListener;
-import com.hucet.properties.MailBindingProperties;
+import com.hucet.properties.rabbitmq.MailBindingProperties;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.*;
@@ -14,7 +14,6 @@ import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Service;
 
 
 @Slf4j
@@ -49,7 +48,7 @@ public class RabbitMQBindConfig {
 
     @Bean
     MessageListenerAdapter mailSenderListener() {
-        MessageListenerAdapter adapter = new MessageListenerAdapter(new MQListener.MQListenerImpl(), "onReceiveredMailSend");
+        MessageListenerAdapter adapter = new MessageListenerAdapter(new MQListener.MQListenerImpl(), "onReceiveredMailForCert");
         adapter.setMessageConverter(jsonMessageConverter());
         return adapter;
     }

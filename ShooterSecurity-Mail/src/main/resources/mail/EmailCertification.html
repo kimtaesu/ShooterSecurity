@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:remove="all">Email 인증</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<p>안녕하세요.</p>
+<p><span th:text="${userName}">익명의 사용자</span> 님</p>
+<p>본인 인증을 위하여 아래의 링크를 클릭해 주세요.</p>
+<p>링크 : <a th:href="@{${link}}">본인 인증</p>
+</body>
+</html>

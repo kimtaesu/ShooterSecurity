@@ -1,9 +1,10 @@
 package com.hucet.service;
 
-import com.hucet.dto.mq.MailSendDto;
-import com.hucet.properties.MailBindingProperties;
-import lombok.Data;
+import com.hucet.dto.AccountDto;
+import com.hucet.dto.mq.MailUserInfoDto;
+import com.hucet.properties.rabbitmq.MailBindingProperties;
 import lombok.extern.slf4j.Slf4j;
+import org.modelmapper.ModelMapper;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.amqp.support.converter.MessageConverter;
@@ -16,7 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
  * Created by taesu on 2017-01-26.
  */
 public interface EmailService {
-    void sendEmailMessage(MailSendDto dto);
+    void notifyEmailCert(AccountDto.ApplicationRequest dto);
 
     @Service
     @Transactional
@@ -28,8 +29,11 @@ public interface EmailService {
         @Autowired
         private RabbitTemplate rabbitTemplate;
 
+        @Autowired
+        ModelMapper mapper;
         @Override
-        public void sendEmailMessage(MailSendDto dto) {
+        public void notifyEmailCert(AccountDto.ApplicationRequest dto) {
+            MailUserInfoDto mailUserInfoDto = mapper.map(dto, MailUserInfoDto.class);
             rabbitTemplate.setMessageConverter(jsonMessageConverter());
             rabbitTemplate.convertAndSend(mailBindingProperties.getExchange(),
                     mailBindingProperties.getRountingKey(),
@@ -40,5 +44,6 @@ public interface EmailService {
         public MessageConverter jsonMessageConverter() {
             return new Jackson2JsonMessageConverter();
         }
+
     }
 }

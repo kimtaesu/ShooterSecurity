@@ -30,6 +30,7 @@ dependencies {
     compile project(':ShooterSecurity-Dto')
     compile project(':ShooterSecurity-Service')
     compile project(':ShooterSecurity-Properties')
+    compile project(':ShooterSecurity-Common')
     compile('com.h2database:h2')
     compile('mysql:mysql-connector-java')
 }
